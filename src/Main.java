@@ -28,7 +28,7 @@ public class Main
                 if (monPdo.verifierConnexion(username, password))
                 {
                     JOptionPane.showMessageDialog(frame, "Connexion réussie !");
-                    frame.dispose(); // Fermer la fenêtre de connexion actuelle
+                    frame.dispose();
                     Vue_Acceuil vueAcceuil = new Vue_Acceuil(); // Instancier la nouvelle fenêtre
                     vueAcceuil.setVisible(true); // Afficher la nouvelle fenêtre
                 }

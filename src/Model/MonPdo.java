@@ -1,4 +1,5 @@
 package Model;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,20 +19,17 @@ public class MonPdo
             String user = "root";
             String mdp = "";
             this.unPDO = DriverManager.getConnection(url, user, mdp);
-        } catch (SQLException exp)
+        }
+        catch (SQLException exp)
         {
             System.err.println("Erreur de connexion: " + exp.getMessage());
         }
     }
 
-    public Connection getConnection()
-    {
-        return this.unPDO;
-    }
-
     public void closeConnection()
     {
-        try {
+        try
+        {
             if (this.unPDO != null)
             {
                 this.unPDO.close();
@@ -50,10 +48,33 @@ public class MonPdo
             statement.setString(1, username);
             statement.setString(2, password);
             ResultSet resultSet = statement.executeQuery();
-            return resultSet.next(); // Vérifie si une ligne correspondante est trouvée dans la base de données
-        } catch (SQLException exp) {
+            return resultSet.next();
+        }
+        catch (SQLException exp)
+        {
             System.err.println("Erreur lors de la vérification de la connexion: " + exp.getMessage());
             return false;
         }
     }
+
+    public ResultSet executerRequete(String sql) throws SQLException
+    {
+        ResultSet resultSet = null;
+        try
+        {
+            PreparedStatement statement = this.unPDO.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+        }
+        catch (SQLException exp)
+        {
+            System.err.println("Erreur lors de l'exécution de la requête: " + exp.getMessage());
+            if (resultSet != null)
+            {
+                resultSet.close();
+            }
+            throw exp;
+        }
+        return resultSet;
+    }
+
 }
