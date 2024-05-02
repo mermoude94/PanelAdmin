@@ -1,6 +1,7 @@
 package Vue;
 
 import Model.Client;
+import Model.Traitement;
 import Model.Utilisateur;
 import javax.swing.*;
 import java.awt.*;
@@ -37,6 +38,22 @@ public class Vue_Acceuil extends JFrame
         boutonsPanel.add(bouton4);
         boutonsPanel.add(bouton5);
         panel.add(boutonsPanel, BorderLayout.NORTH);
+
+        bouton2.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                JFrame frame = new JFrame("Liste des Utilisateurs");
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.setLayout(new BorderLayout());
+                frame.setSize(600, 400);
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+
+                Traitement.afficherListeAnnonces(frame);
+            }
+        });
 
         bouton4.addActionListener(new ActionListener()
         {
