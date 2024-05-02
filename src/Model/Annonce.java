@@ -3,7 +3,7 @@ package Model;
 public class Annonce
 {
     private String iduser;
-    private String Id_annonce;
+    private int Id_annonce;
     private String Id_marque;
     private String Id_ref;
     private String Prix;
@@ -15,7 +15,19 @@ public class Annonce
     private String prenom_user;
     private String nom_fichier;
 
-    public Annonce(String Id_annonce, String Id_ref, String Id_marque, String Prix, String Id_photo, String description,String nom_marque, String iduser, String nom_ref, String nom_user, String prenom_user, String nom_fichier)
+    public Annonce(
+            String iduser,
+            int Id_annonce,
+            String Id_marque,
+            String Id_ref,
+            String Prix,
+            String Id_photo,
+            String description,
+            String nom_marque,
+            String nom_ref,
+            String nom_user,
+            String prenom_user,
+            String nom_fichier)
     {
         this.iduser = iduser;
         this.Id_annonce = Id_annonce;
@@ -29,13 +41,12 @@ public class Annonce
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.nom_fichier = nom_fichier;
-
     }
     public String getIduser()
     {
         return iduser;
     }
-    public String getId_annonce()
+    public int getId_annonce()
     {
         return Id_annonce;
     }

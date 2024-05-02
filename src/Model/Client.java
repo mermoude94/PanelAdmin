@@ -29,20 +29,19 @@ public class Client
         }
         return utilisateurs;
     }
-    public static void afficherListeUtilisateurs()
+    public static void afficherListeUtilisateurs(JPanel panel)
     {
         Client client = new Client();
         ArrayList<Utilisateur> utilisateurs = client.DonneeUtilisateurs();
 
         DefaultTableModel model = new DefaultTableModel();
 
-        // Ajouter les colonnes au modèle
         model.addColumn("Nom");
         model.addColumn("Prénom");
         model.addColumn("Email");
         model.addColumn("Adresse");
 
-        // Ajouter les données des utilisateurs au modèle
+
         for (Utilisateur utilisateur : utilisateurs)
         {
             model.addRow(new Object[]{utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getEmail(), utilisateur.getAdresse()});
@@ -51,16 +50,13 @@ public class Client
         // Créer la table avec le modèle de données
         JTable table = new JTable(model);
 
-        // Créer un JScrollPane pour ajouter la table avec barre de défilement
         JScrollPane scrollPane = new JScrollPane(table);
 
-        // Créer une fenêtre pour afficher la table
-        JFrame frame = new JFrame("Liste des Utilisateurs");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setLayout(new BorderLayout());
-        frame.add(scrollPane, BorderLayout.CENTER);
-        frame.setSize(600, 400);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        panel.removeAll();
+        panel.setLayout(new BorderLayout());
+        panel.add(scrollPane, BorderLayout.CENTER);
+        panel.revalidate();
+        panel.repaint();
     }
+
 }

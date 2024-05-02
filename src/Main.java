@@ -29,8 +29,8 @@ public class Main
                 {
                     JOptionPane.showMessageDialog(frame, "Connexion réussie !");
                     frame.dispose();
-                    Vue_Acceuil vueAcceuil = new Vue_Acceuil(); // Instancier la nouvelle fenêtre
-                    vueAcceuil.setVisible(true); // Afficher la nouvelle fenêtre
+                    Vue_Acceuil vueAcceuil = new Vue_Acceuil();
+                    vueAcceuil.setVisible(true);
                 }
                 else
                 {

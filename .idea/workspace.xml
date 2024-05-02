@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b76dc0d-da65-41c4-9293-dd3b0cbac1c0" name="Changes" comment="cheppa">
+      <change afterPath="$PROJECT_DIR$/src/Model/Analyse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Signalement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/php/Index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vue/VueUneAnnonce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Annonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Annonce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Traitement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Traitement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vue/Vue_Acceuil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/Vue_Acceuil.java" afterDir="false" />
     </list>
@@ -13,6 +21,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -30,17 +41,20 @@
     &quot;assignee&quot;: &quot;mermoude94&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/mermoude94/PanelAdmin.git&quot;,
-    &quot;accountId&quot;: &quot;cbe30342-8373-49ab-8cd9-51124c157de8&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mermoude94/PanelAdmin.git",
+    "accountId": "b792f183-799d-4e82-b97c-05e0a7dda840"
   }
-}</component>
+}]]></component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2faPUqWhWpDf06wqYs3oFmr1a3S" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -67,6 +81,11 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;PLAIN_TEXT&quot;
+    ]
   }
 }</component>
   <component name="SharedIndexes">
@@ -91,6 +110,7 @@
       <workItem from="1714040597276" duration="9546000" />
       <workItem from="1714564142241" duration="1542000" />
       <workItem from="1714566145131" duration="19571000" />
+      <workItem from="1714660035197" duration="1654000" />
     </task>
     <task id="LOCAL-00001" summary="Connection interface">
       <option name="closed" value="true" />
