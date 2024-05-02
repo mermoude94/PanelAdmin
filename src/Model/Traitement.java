@@ -40,10 +40,10 @@ public class Traitement
         return annonces;
     }
 
-    public static void afficherListeAnnonces()
+    public static void afficherListeAnnonces(JFrame frame)
     {
-        Traitement traitement = new traitement();
-        ArrayList<Annonce> Annonce = Traitement.DonneeAnnonce();
+        Traitement Traitement = new Traitement();
+        ArrayList<Annonce> annonces = DonneeAnnonce();
 
         DefaultTableModel model = new DefaultTableModel();
 
@@ -60,25 +60,35 @@ public class Traitement
         model.addColumn("prenom_user");
         model.addColumn("nom_fichier");
 
-        // Ajouter les données des utilisateurs au modèle
-        for (Annonce Annonce : annonces)
+        for (Annonce annonce : annonces)
         {
-            model.addRow(new Object[]{utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getEmail(), utilisateur.getAdresse()});
+            model.addRow(new Object[]
+                    {
+                            annonce.getIduser(),
+                            annonce.getId_annonce(),
+                            annonce.getId_marque(),
+                            annonce.getId_ref(),
+                            annonce.getPrix(),
+                            annonce.getId_photo(),
+                            annonce.getDescription(),
+                            annonce.getNom_marque(),
+                            annonce.getNom_ref(),
+                            annonce.getNom_user(),
+                            annonce.getPrenom_user(),
+                            annonce.getNom_fichier()
+                    });
         }
 
-        // Créer la table avec le modèle de données
         JTable table = new JTable(model);
 
-        // Créer un JScrollPane pour ajouter la table avec barre de défilement
         JScrollPane scrollPane = new JScrollPane(table);
 
-        // Créer une fenêtre pour afficher la table
-        JFrame frame = new JFrame("Liste des Utilisateurs");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setTitle("Liste des Utilisateurs");
+        frame.getContentPane().removeAll();
         frame.setLayout(new BorderLayout());
         frame.add(scrollPane, BorderLayout.CENTER);
-        frame.setSize(600, 400);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        frame.revalidate();
+        frame.repaint();
+
     }
 }
