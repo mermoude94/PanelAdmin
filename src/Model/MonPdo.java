@@ -76,5 +76,22 @@ public class MonPdo
         }
         return resultSet;
     }
+    public void executerUneRequete(String sql, Object... params) throws SQLException
+    {
+        try (PreparedStatement statement = this.unPDO.prepareStatement(sql))
+        {
+            for (int i = 0; i < params.length; i++)
+            {
+                statement.setObject(i + 1, params[i]);
+            }
+            statement.executeUpdate();
+        }
+        catch (SQLException exp)
+        {
+            System.err.println("Erreur lors de l'exécution de la requête: " + exp.getMessage());
+            throw exp;
+        }
+    }
+
 
 }

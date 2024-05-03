@@ -13,9 +13,11 @@ public class Client
     {
         MonPdo monPdo = new MonPdo();
         ArrayList<Utilisateur> utilisateurs = new ArrayList<>();
-        try {
+        try
+        {
             ResultSet resultSet = monPdo.executerRequete("SELECT * FROM user");
-            while (resultSet.next()) {
+            while (resultSet.next())
+            {
                 String nom = resultSet.getString("nom");
                 String prenom = resultSet.getString("prenom");
                 String email = resultSet.getString("email");

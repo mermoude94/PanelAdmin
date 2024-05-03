@@ -11,11 +11,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Traitement {
-    public static ArrayList<Annonce> DonneeAnnonce() {
+public class Traitement
+{
+    public static ArrayList<Annonce> DonneeAnnonce()
+    {
         MonPdo monPdo = new MonPdo();
         ArrayList<Annonce> annonces = new ArrayList<>();
-        try {
+        try
+        {
             ResultSet resultSet = monPdo.executerRequete(
                     "SELECT annonce.iduser, " +
                             "annonce.Id_annonce, " +
@@ -35,7 +38,8 @@ public class Traitement {
                             "LEFT JOIN ref ON annonce.Id_ref = ref.Id_ref " +
                             "LEFT JOIN user ON annonce.iduser = user.iduser");
 
-            while (resultSet.next()) {
+            while (resultSet.next())
+            {
                 String iduser = resultSet.getString("iduser");
                 int Id_annonce = resultSet.getInt("Id_annonce");
                 String Id_marque = resultSet.getString("Id_marque");
@@ -51,7 +55,9 @@ public class Traitement {
 
                 annonces.add(new Annonce(iduser, Id_annonce, Id_marque, Id_ref, Prix, Id_photo, description, nom_marque, nom_ref, nom_user, prenom_user, nom_fichier));
             }
-        } catch (SQLException e) {
+        }
+        catch (SQLException e)
+        {
             e.printStackTrace();
         }
         return annonces;
@@ -61,28 +67,27 @@ public class Traitement {
 
     public static void afficherListeAnnonces(JPanel panel)
     {
-        Traitement traitement = new Traitement();
         ArrayList<Annonce> annonces = DonneeAnnonce();
         Object[][] data = new Object[annonces.size()][13];
         for (int i = 0; i < annonces.size(); i++)
         {
             Annonce annonce = annonces.get(i);
-            data[i] = new Object[]{
-                    null, // Initialisation avec null pour la colonne de sélection
-                    annonce.getIduser(),
-                    annonce.getId_annonce(),
-                    annonce.getId_marque(),
-                    annonce.getId_ref(),
-                    annonce.getPrix(),
-                    annonce.getId_photo(),
-                    annonce.getDescription(),
-                    annonce.getNom_marque(),
-                    annonce.getNom_ref(),
-                    annonce.getNom_user(),
-                    annonce.getPrenom_user(),
-                    annonce.getNom_fichier()
-            };
-
+            data[i] = new Object[]
+                    {
+                        null,
+                        annonce.getIduser(),
+                        annonce.getId_annonce(),
+                        annonce.getId_marque(),
+                        annonce.getId_ref(),
+                        annonce.getPrix(),
+                        annonce.getId_photo(),
+                        annonce.getDescription(),
+                        annonce.getNom_marque(),
+                        annonce.getNom_ref(),
+                        annonce.getNom_user(),
+                        annonce.getPrenom_user(),
+                        annonce.getNom_fichier()
+                    };
         }
 
         String[] columnNames =
@@ -151,17 +156,21 @@ public class Traitement {
             if (ligneSelectionnee != -1)
             {
                 annoncesSelectionnees.clear();
-                annoncesSelectionnees.add((Integer) table.getValueAt(ligneSelectionnee, 2));
+                Object value = table.getValueAt(ligneSelectionnee, 2);
+                if (value != null)
+                {
+                    annoncesSelectionnees.add((Integer) value);
+                }
             }
         });
-
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton button1 = new JButton("Ouvrir");
         JButton button2 = new JButton("Supprimer");
         buttonPanel.add(button1);
         buttonPanel.add(button2);
 
-        button1.addActionListener(new ActionListener() {
+        button1.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e)
             {

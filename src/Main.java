@@ -6,7 +6,6 @@ import Vue.Vue_Acceuil;
 
 public class Main
 {
-
     public static void main(String[] args)
     {
         JFrame frame = new JFrame("Page de Connexion");
@@ -39,7 +38,6 @@ public class Main
                 monPdo.closeConnection();
             }
         });
-
         panel.add(labelUsername);
         panel.add(textFieldUsername);
         panel.add(labelPassword);

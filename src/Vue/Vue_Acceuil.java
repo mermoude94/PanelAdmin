@@ -2,6 +2,7 @@ package Vue;
 
 import Model.Analyse;
 import Model.Client;
+import Model.Reference;
 import Model.Traitement;
 import javax.swing.*;
 import java.awt.*;
@@ -27,13 +28,15 @@ public class Vue_Acceuil extends JFrame
         JButton bouton2 = new JButton("Annonce");
         JButton bouton3 = new JButton("Signalement");
         JButton bouton4 = new JButton("Liste Utilisateurs");
-        JButton bouton5 = new JButton("Déconnexion");
+        JButton bouton5 = new JButton("Reference");
+        JButton bouton6 = new JButton("Déconnexion");
 
         boutonsPanel.add(bouton1);
         boutonsPanel.add(bouton2);
         boutonsPanel.add(bouton3);
         boutonsPanel.add(bouton4);
         boutonsPanel.add(bouton5);
+        boutonsPanel.add(bouton6);
         panel.add(boutonsPanel, BorderLayout.NORTH);
 
         contentPanel = new JPanel();
@@ -74,7 +77,7 @@ public class Vue_Acceuil extends JFrame
             public void actionPerformed(ActionEvent e)
             {
                 contentPanel.removeAll();
-                Analyse.afficherListeSignalement(contentPanel);
+                Analyse.afficherListeSiglalement(contentPanel);
                 contentPanel.revalidate();
                 contentPanel.repaint();
             }
@@ -87,6 +90,17 @@ public class Vue_Acceuil extends JFrame
             {
                 contentPanel.removeAll();
                 Client.afficherListeUtilisateurs(contentPanel);
+                contentPanel.revalidate();
+                contentPanel.repaint();
+            }
+        });
+        bouton5.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                contentPanel.removeAll();
+                Reference.afficherLesListe(contentPanel);
                 contentPanel.revalidate();
                 contentPanel.repaint();
             }

@@ -4,17 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b76dc0d-da65-41c4-9293-dd3b0cbac1c0" name="Changes" comment="cheppa">
-      <change afterPath="$PROJECT_DIR$/src/Model/Analyse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Signalement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/php/Index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vue/VueUneAnnonce.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4b76dc0d-da65-41c4-9293-dd3b0cbac1c0" name="Changes" comment="Ajout selection des annonce et signalement,&#10;selection une annonce dans une nouvelle page,&#10;ajout Signalement">
+      <change afterPath="$PROJECT_DIR$/src/Model/Marque.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Modele.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Reference.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Suppression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vue/VueUnSignalement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Annonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Annonce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Analyse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Analyse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MonPdo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MonPdo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Signalement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Signalement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Traitement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Traitement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vue/VueUneAnnonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/VueUneAnnonce.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vue/Vue_Acceuil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/Vue_Acceuil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,12 +44,12 @@
     &quot;assignee&quot;: &quot;mermoude94&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/mermoude94/PanelAdmin.git",
-    "accountId": "b792f183-799d-4e82-b97c-05e0a7dda840"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/mermoude94/PanelAdmin.git&quot;,
+    &quot;accountId&quot;: &quot;b792f183-799d-4e82-b97c-05e0a7dda840&quot;
   }
-}]]></component>
+}</component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -59,35 +62,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MonPdo.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Monpdo.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Vue_Acceuil.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sbenm/Downloads/mysql-connector-java-5.1.40_2/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.MonPdo.executor": "Run",
+    "Application.Monpdo.executor": "Run",
+    "Application.Vue_Acceuil.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "openjdk-22",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sbenm/Downloads/mysql-connector-java-5.1.40_2/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;PLAIN_TEXT&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "PLAIN_TEXT"
     ]
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -110,7 +113,8 @@
       <workItem from="1714040597276" duration="9546000" />
       <workItem from="1714564142241" duration="1542000" />
       <workItem from="1714566145131" duration="19571000" />
-      <workItem from="1714660035197" duration="1654000" />
+      <workItem from="1714660035197" duration="2190000" />
+      <workItem from="1714720802200" duration="27519000" />
     </task>
     <task id="LOCAL-00001" summary="Connection interface">
       <option name="closed" value="true" />
@@ -136,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714565302646</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ajout selection des annonce et signalement,&#10;selection une annonce dans une nouvelle page,&#10;ajout Signalement">
+      <option name="closed" value="true" />
+      <created>1714661999304</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714661999304</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,7 +157,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Connection interface" />
     <MESSAGE value="cheppa" />
-    <option name="LAST_COMMIT_MESSAGE" value="cheppa" />
+    <MESSAGE value="Ajout selection des annonce et signalement,&#10;selection une annonce dans une nouvelle page,&#10;ajout Signalement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout selection des annonce et signalement,&#10;selection une annonce dans une nouvelle page,&#10;ajout Signalement" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
