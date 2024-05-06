@@ -1,6 +1,10 @@
 package Model;
+import Vue.Vue_Acceuil;
+
 import javax.swing.*;
 import java.sql.SQLException;
+
+import static Vue.Vue_Acceuil.contentPanel;
 
 public class Suppression
 {
@@ -9,14 +13,24 @@ public class Suppression
         try
         {
             MonPdo monPdo = new MonPdo();
-            String query = "DELETE annonce, photo FROM annonce JOIN photo ON annonce.Id_Photo = photo.Id_Photo WHERE annonce.Id_annonce = ?";
-            monPdo.executerUneRequete(query, idAnnonce);
-            JOptionPane.showMessageDialog(null, "Annonce supprimée avec succès.", "Succès", JOptionPane.INFORMATION_MESSAGE);
+            String query = "DELETE annonce FROM annonce  WHERE Id_annonce = ?";
+            int rowsAffected = monPdo.executerUneRequete(query, idAnnonce);
+            if (rowsAffected > 0)
+            {
+                JOptionPane.showMessageDialog(null, "Annonce supprimée avec succès.", "Succès", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Échec de la suppression de l'annonce.", "Échec", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        catch (SQLException e)
+        catch (Exception ex)
         {
-            JOptionPane.showMessageDialog(null, "Probleme lors de la suppression de l'annonce", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("Une exception s'est produite lors de la suppression de l'annonce : " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Une erreur s'est produite lors de la suppression de l'annonce.", "Erreur", JOptionPane.ERROR_MESSAGE);
         }
+
+
     }
     public static void SupprimerUnSignalement(int idSignalement)
     {

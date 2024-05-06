@@ -8,9 +8,7 @@ import java.sql.SQLException;
 
 public class MonPdo
 {
-
     private Connection unPDO;
-
     public MonPdo()
     {
         try
@@ -25,7 +23,6 @@ public class MonPdo
             System.err.println("Erreur de connexion: " + exp.getMessage());
         }
     }
-
     public void closeConnection()
     {
         try
@@ -39,7 +36,6 @@ public class MonPdo
             System.err.println("Erreur lors de la fermeture de la connexion: " + exp.getMessage());
         }
     }
-
     public boolean verifierConnexion(String username, String password)
     {
         String sql = "SELECT * FROM user WHERE nom = ? AND mdp = ?";
@@ -76,7 +72,7 @@ public class MonPdo
         }
         return resultSet;
     }
-    public void executerUneRequete(String sql, Object... params) throws SQLException
+    public int executerUneRequete(String sql, Object... params) throws SQLException
     {
         try (PreparedStatement statement = this.unPDO.prepareStatement(sql))
         {
@@ -85,6 +81,7 @@ public class MonPdo
                 statement.setObject(i + 1, params[i]);
             }
             statement.executeUpdate();
+            return (1);
         }
         catch (SQLException exp)
         {

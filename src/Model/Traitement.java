@@ -1,6 +1,7 @@
 package Model;
 
 import Vue.VueUneAnnonce;
+import Vue.Vue_Acceuil;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -11,8 +12,59 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static Vue.Vue_Acceuil.contentPanel;
+
 public class Traitement
 {
+    public static ArrayList<Annonce> DonneeAnnonce()
+    {
+        MonPdo monPdo = new MonPdo();
+        ArrayList<Annonce> annonces = new ArrayList<>();
+        try
+        {
+            ResultSet resultSet = monPdo.executerRequete(
+                    "SELECT annonce.iduser, " +
+                            "annonce.Id_annonce, " +
+                            "annonce.Id_marque, " +
+                            "annonce.Id_ref, " +
+                            "annonce.Prix, " +
+                            "annonce.Id_photo, " +
+                            "annonce.description, " +
+                            "marque.nom AS nom_marque, " +
+                            "ref.nom AS nom_ref, " +
+                            "user.nom AS nom_user, " +
+                            "user.prenom AS prenom_user, " +
+                            "photo.nom_fichier AS nom_fichier " +
+                            "FROM annonce " +
+                            "LEFT JOIN marque ON annonce.Id_marque = marque.Id_marque " +
+                            "LEFT JOIN photo ON annonce.Id_photo = photo.Id_photo " +
+                            "LEFT JOIN ref ON annonce.Id_ref = ref.Id_ref " +
+                            "LEFT JOIN user ON annonce.iduser = user.iduser");
+
+            while (resultSet.next())
+            {
+                String iduser = resultSet.getString("iduser");
+                int Id_annonce = resultSet.getInt("Id_annonce");
+                String Id_marque = resultSet.getString("Id_marque");
+                String Id_ref = resultSet.getString("Id_ref");
+                String Prix = resultSet.getString("Prix");
+                String Id_photo = resultSet.getString("Id_photo");
+                String description = resultSet.getString("description");
+                String nom_marque = resultSet.getString("nom_marque");
+                String nom_ref = resultSet.getString("nom_ref");
+                String nom_user = resultSet.getString("nom_user");
+                String prenom_user = resultSet.getString("prenom_user");
+                String nom_fichier = resultSet.getString("nom_fichier");
+
+                annonces.add(new Annonce(iduser, Id_annonce, Id_marque, Id_ref, Prix, Id_photo, description, nom_marque, nom_ref, nom_user, prenom_user, nom_fichier));
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return annonces;
+    }
     public static ArrayList<Annonce> DonneeAnnonce()
     {
         MonPdo monPdo = new MonPdo();
@@ -172,14 +224,40 @@ public class Traitement
         button1.addActionListener(new ActionListener()
         {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                if (!annoncesSelectionnees.isEmpty())
-                {
+            public void actionPerformed(ActionEvent e) {
+                if (!annoncesSelectionnees.isEmpty()) {
                     VueUneAnnonce.afficherAnnonce(annoncesSelectionnees.get(0));
+
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Aucune annonce selectionnée.", "Échec", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
+
+        button2.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if(!annoncesSelectionnees.isEmpty())
+                {
+                    int idAnnonce = annoncesSelectionnees.getFirst();
+                    Suppression.SupprimerUneAnnonce(idAnnonce);
+                    contentPanel.removeAll();
+                    Traitement.afficherListeAnnonces(contentPanel);
+                    contentPanel.revalidate();
+                    contentPanel.repaint();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Aucune annonce selectionnée.", "Échec", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
+        });
+
 
         panel.removeAll();
         panel.setLayout(new BorderLayout());

@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static Vue.Vue_Acceuil.contentPanel;
+
 public class Analyse
 {
     public static ArrayList<Signalement> DonneeSignalements()
@@ -159,6 +161,10 @@ public class Analyse
                 {
                     VueUnSignalement.afficherSignalement(SignalementSelectionnees.get(0));
                 }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Aucun Signalement selectionné.", "Échec", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         button2.addActionListener(new ActionListener()
@@ -170,6 +176,14 @@ public class Analyse
                 {
                     int idSignalement = SignalementSelectionnees.get(0);
                     Suppression.SupprimerUnSignalement(idSignalement);
+                    contentPanel.removeAll();
+                    Analyse.afficherListeSiglalement(contentPanel);
+                    contentPanel.revalidate();
+                    contentPanel.repaint();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Aucun Signalement selectionné.", "Échec", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });

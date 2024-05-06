@@ -9,13 +9,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Vue_Acceuil extends JFrame
-{
+public class Vue_Acceuil extends JFrame {
     private Client client;
-    private JPanel contentPanel;
+    public static JPanel contentPanel;
 
-    public Vue_Acceuil()
-    {
+    public Vue_Acceuil() {
         setTitle("Page d'accueil");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1280, 720);
@@ -42,8 +40,7 @@ public class Vue_Acceuil extends JFrame
         contentPanel = new JPanel();
         panel.add(contentPanel, BorderLayout.CENTER);
 
-        bouton1.addActionListener(new ActionListener()
-        {
+        bouton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
@@ -60,11 +57,9 @@ public class Vue_Acceuil extends JFrame
             }
         });
 
-        bouton2.addActionListener(new ActionListener()
-        {
+        bouton2.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 contentPanel.removeAll();
                 Traitement.afficherListeAnnonces(contentPanel);
                 contentPanel.revalidate();
@@ -83,8 +78,7 @@ public class Vue_Acceuil extends JFrame
             }
         });
 
-        bouton4.addActionListener(new ActionListener()
-        {
+        bouton4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
@@ -94,11 +88,9 @@ public class Vue_Acceuil extends JFrame
                 contentPanel.repaint();
             }
         });
-        bouton5.addActionListener(new ActionListener()
-        {
+        bouton5.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 contentPanel.removeAll();
                 Reference.afficherLesListe(contentPanel);
                 contentPanel.revalidate();
@@ -110,6 +102,4 @@ public class Vue_Acceuil extends JFrame
         setVisible(true);
     }
 }
-
-
 
