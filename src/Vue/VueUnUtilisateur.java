@@ -5,13 +5,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static Vue.Vue_Acceuil.contentPanel;
+
 public class VueUnUtilisateur
 {
     public static void afficherUtilisateur(int Iduser)
     {
         Utilisateur utilisateur = Client.getUtilisateurById(Iduser);
 
-        JFrame frame = new JFrame("Utilisateur" + Iduser);
+        JFrame frame = new JFrame("Utilisateur" + utilisateur.getNom() + " " + utilisateur.getPrenom());
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
@@ -32,7 +34,7 @@ public class VueUnUtilisateur
         }
         else
         {
-            addLabel(panel, gbc, "Aucun Utilisateur trouvée : ");
+            addLabel(panel, gbc, "Aucun Utilisateur trouvée.");
         }
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton button1 = new JButton("Afficher les annonce du Client");
@@ -53,8 +55,9 @@ public class VueUnUtilisateur
             {
                 if (utilisateur != null)
                 {
-                    int Iduser = utilisateur.getIduser();
-                    Traitement.afficherLesAnnonceDunclient(Iduser);
+                    Traitement.afficherListeAnnoncesDuClient(contentPanel, utilisateur.getIduser());
+                    contentPanel.revalidate();
+                    contentPanel.repaint();
                 }
             }
         });

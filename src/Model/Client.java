@@ -110,16 +110,16 @@ public class Client
 
         table.getSelectionModel().addListSelectionListener(e ->
         {
-            int ligneSelectionnee = table.getSelectedRow();
-            if (ligneSelectionnee != -1)
-            {
-                utilisateursSelectionnees.clear();
-                Object value = table.getValueAt(ligneSelectionnee, 2);
-                if (value != null)
+                int ligneSelectionnee = table.getSelectedRow();
+                if (ligneSelectionnee != -1)
                 {
-                    utilisateursSelectionnees.add((Integer) value);
+                    utilisateursSelectionnees.clear();
+                    Object value = table.getValueAt(ligneSelectionnee, 1);
+                    if (value != null)
+                    {
+                        utilisateursSelectionnees.add((Integer) value);
+                    }
                 }
-            }
         });
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton button1 = new JButton("Ouvrir");
@@ -151,7 +151,6 @@ public class Client
                 if(!utilisateursSelectionnees.isEmpty())
                 {
                     int idAnnonce = utilisateursSelectionnees.getFirst();
-                    Suppression.SupprimerUnUtilisateur(Iduser);
                     contentPanel.removeAll();
                     Traitement.afficherListeAnnonces(contentPanel);
                     contentPanel.revalidate();
@@ -181,7 +180,7 @@ public class Client
             ResultSet resultSet = monPdo.executerRequete(
                     "SELECT iduser, nom, prenom, email, adresse\n" +
                     "FROM user\n" +
-                    STR."\tWHERE iduser = :idAnnonce;\{Iduser}");
+                    STR."\tWHERE iduser = \{Iduser}");
 
             if (resultSet.next())
             {

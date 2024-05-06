@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b76dc0d-da65-41c4-9293-dd3b0cbac1c0" name="Changes" comment="Ajout selection des annonce et signalement,&#10;selection une annonce dans une nouvelle page,&#10;ajout Signalement">
-      <change afterPath="$PROJECT_DIR$/src/Vue/VueUnUtilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2024_08_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2024_08_52__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Analyse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Analyse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Annonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Annonce.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/MonPdo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MonPdo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Suppression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Suppression.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Traitement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Traitement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Utilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vue/VueUnUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/VueUnUtilisateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vue/Vue_Acceuil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/Vue_Acceuil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,6 +84,20 @@
     ]
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="PanelAdmin" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -110,7 +122,6 @@
       <workItem from="1714566145131" duration="19571000" />
       <workItem from="1714660035197" duration="2190000" />
       <workItem from="1714720802200" duration="27519000" />
-      <workItem from="1714996996697" duration="14834000" />
     </task>
     <task id="LOCAL-00001" summary="Connection interface">
       <option name="closed" value="true" />
@@ -149,17 +160,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Connection interface" />

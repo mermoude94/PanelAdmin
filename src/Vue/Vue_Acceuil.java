@@ -57,9 +57,11 @@ public class Vue_Acceuil extends JFrame {
             }
         });
 
-        bouton2.addActionListener(new ActionListener() {
+        bouton2.addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 contentPanel.removeAll();
                 Traitement.afficherListeAnnonces(contentPanel);
                 contentPanel.revalidate();
@@ -78,7 +80,8 @@ public class Vue_Acceuil extends JFrame {
             }
         });
 
-        bouton4.addActionListener(new ActionListener() {
+        bouton4.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e)
             {
@@ -88,9 +91,11 @@ public class Vue_Acceuil extends JFrame {
                 contentPanel.repaint();
             }
         });
-        bouton5.addActionListener(new ActionListener() {
+        bouton5.addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 contentPanel.removeAll();
                 Reference.afficherLesListe(contentPanel);
                 contentPanel.revalidate();
@@ -101,5 +106,6 @@ public class Vue_Acceuil extends JFrame {
         add(panel);
         setVisible(true);
     }
+
 }
 

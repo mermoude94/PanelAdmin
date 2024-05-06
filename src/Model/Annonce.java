@@ -2,7 +2,7 @@ package Model;
 
 public class Annonce
 {
-    private String iduser;
+    private int iduser;
     private int Id_annonce;
     private String Id_marque;
     private String Id_ref;
@@ -16,7 +16,7 @@ public class Annonce
     private String nom_fichier;
 
     public Annonce(
-            String iduser,
+            int iduser,
             int Id_annonce,
             String Id_marque,
             String Id_ref,
@@ -42,7 +42,7 @@ public class Annonce
         this.prenom_user = prenom_user;
         this.nom_fichier = nom_fichier;
     }
-    public String getIduser()
+    public int getIduser()
     {
         return iduser;
     }
