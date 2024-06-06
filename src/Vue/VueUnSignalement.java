@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URI;
 
+import static Vue.Vue_Acceuil.contentPanel;
+
 public class VueUnSignalement
 {
     public static void afficherSignalement(int SignalementId)
@@ -79,6 +81,20 @@ public class VueUnSignalement
                 {
                     ex.printStackTrace();
                 }
+            }
+        });
+        button2.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                int SignalementId = signalement.getId_signalement();
+                Suppression.SupprimerUnSignalement(SignalementId);
+                frame.dispose();
+                contentPanel.removeAll();
+                Analyse.afficherListeSiglalement(contentPanel);
+                contentPanel.revalidate();
+                contentPanel.repaint();
             }
         });
     }

@@ -56,6 +56,25 @@ public class VueUnUtilisateur
                 if (utilisateur != null)
                 {
                     Traitement.afficherListeAnnoncesDuClient(contentPanel, utilisateur.getIduser());
+                    frame.dispose();
+                    contentPanel.removeAll();
+                    Traitement.afficherListeAnnonces(contentPanel);
+                    contentPanel.revalidate();
+                    contentPanel.repaint();
+                }
+            }
+        });
+        button2.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (utilisateur != null)
+                {
+                    Suppression.SupprimerUnUtilisateur(utilisateur.getIduser());
+                    frame.dispose();
+                    contentPanel.removeAll();
+                    Client.afficherListeUtilisateurs(contentPanel);
                     contentPanel.revalidate();
                     contentPanel.repaint();
                 }

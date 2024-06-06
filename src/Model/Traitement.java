@@ -146,7 +146,10 @@ public class Traitement
                 super.setValueAt(value, row, column);
             }
         };
-
+        if(annonces.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Aucune annonce Trouvé.", "Échec", JOptionPane.ERROR_MESSAGE);
+        }
         JTable table = new JTable(model);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -355,7 +358,10 @@ public class Traitement
                         "prenom_user",
                         "nom_fichier"
                 };
-
+        if(annonces.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Aucune annonce Trouvé.", "Échec", JOptionPane.ERROR_MESSAGE);
+        }
         DefaultTableModel model = new DefaultTableModel(data, columnNames)
         {
             @Override

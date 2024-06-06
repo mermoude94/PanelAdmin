@@ -148,11 +148,11 @@ public class Client
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                if(!utilisateursSelectionnees.isEmpty())
+                if (utilisateursSelectionnees != null)
                 {
-                    int idAnnonce = utilisateursSelectionnees.getFirst();
+                    Suppression.SupprimerUnUtilisateur(utilisateursSelectionnees.get(0));
                     contentPanel.removeAll();
-                    Traitement.afficherListeAnnonces(contentPanel);
+                    Client.afficherListeUtilisateurs(contentPanel);
                     contentPanel.revalidate();
                     contentPanel.repaint();
                 }

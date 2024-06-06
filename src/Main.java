@@ -44,7 +44,6 @@ public class Main
         panel.add(passwordField);
         panel.add(new JLabel());
         panel.add(buttonLogin);
-
         frame.add(panel);
         frame.setSize(1280, 720);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

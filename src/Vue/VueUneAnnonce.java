@@ -1,5 +1,6 @@
 package Vue;
 
+import Model.Analyse;
 import Model.Annonce;
 import Model.Suppression;
 import Model.Traitement;
@@ -9,6 +10,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URI;
+
+import static Vue.Vue_Acceuil.contentPanel;
 
 public class VueUneAnnonce
 {
@@ -75,6 +78,9 @@ public class VueUneAnnonce
                 int idAnnonce = annonce.getId_annonce();
                 Suppression.SupprimerUneAnnonce(idAnnonce);
                 frame.dispose();
+                Traitement.afficherListeAnnonces(contentPanel);
+                contentPanel.revalidate();
+                contentPanel.repaint();
             }
         });
 

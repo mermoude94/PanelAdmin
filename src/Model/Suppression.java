@@ -46,4 +46,18 @@ public class Suppression
             JOptionPane.showMessageDialog(null, "Probleme lors de la suppression du Signalement", "Erreur", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+    public static void SupprimerUnUtilisateur(int Iduser)
+    {
+        try
+        {
+            MonPdo monPdo = new MonPdo();
+            String query = "DELETE FROM user WHERE user.iduser = ?";
+            monPdo.executerUneRequete(query, Iduser);
+            JOptionPane.showMessageDialog(null, "Utilisateur supprimé avec succès.", "Succès", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch (SQLException e)
+        {
+            JOptionPane.showMessageDialog(null, "Probleme lors de la suppression de l'utilisateur", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
 }
