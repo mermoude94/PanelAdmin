@@ -1,8 +1,7 @@
 package Vue;
 
-import Model.Annonce;
-import Model.Suppression;
-import Model.Traitement;
+import Model.*;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,15 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URI;
 
-import static Vue.Vue_Acceuil.contentPanel;
-
-public class VueUneAnnonce
+public class VueUnModele
 {
-    public static void afficherAnnonce(int idAnnonce)
+    public static void afficherModele(int Id_ref)
     {
-        Annonce annonce = Traitement.getAnnonceById(idAnnonce);
-
-        JFrame frame = new JFrame("Annonce Numero: " + idAnnonce);
+        Montre montre = Reference.getReferenceById(Id_ref);
+        JFrame frame = new JFrame("Reference Modele: " + Id_ref);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
@@ -29,18 +25,15 @@ public class VueUneAnnonce
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 5, 5, 5);
 
-        if (annonce != null)
+        if (montre != null)
         {
-            addLabel(panel, gbc, "ID de l'annonce : " + annonce.getId_annonce());
-            addLabel(panel, gbc, "ID de l'utilisateur : " + annonce.getIduser());
-            addLabel(panel, gbc, "Marque : " + annonce.getNom_marque());
-            addLabel(panel, gbc, "Référence : " + annonce.getNom_ref());
-            addLabel(panel, gbc, "Prix : " + annonce.getPrix());
-            addLabel(panel, gbc, "Description : " + annonce.getDescription());
+            addLabel(panel, gbc, "ID de la reference: " + montre.getId_reference());
+            addLabel(panel, gbc, "ID du modele : " + montre.getNom_modele());
+
         }
         else
         {
-            addLabel(panel, gbc, "Aucune annonce trouvée : " + idAnnonce);
+            addLabel(panel, gbc, "Aucune Montre trouvée : " + Id_ref);
         }
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton button1 = new JButton("Afficher en web");
@@ -74,17 +67,9 @@ public class VueUneAnnonce
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                int idAnnonce = annonce.getId_annonce();
-                Suppression.SupprimerUneAnnonce(idAnnonce);
-                frame.dispose();
-                Traitement.afficherListeAnnonces(contentPanel);
-                contentPanel.revalidate();
-                contentPanel.repaint();
             }
         });
-
     }
-
     private static void addLabel(JPanel panel, GridBagConstraints gbc, String text)
     {
         JLabel label = new JLabel(text);

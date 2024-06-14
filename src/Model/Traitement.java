@@ -69,7 +69,6 @@ public class Traitement
     private static ArrayList<Integer> annoncesSelectionnees = new ArrayList<>();
     public static void afficherListeAnnonces(JPanel panel)
     {
-
         ArrayList<Annonce> annonces = DonneeAnnonce();
         Object[][] data = new Object[annonces.size()][13];
         for (int i = 0; i < annonces.size(); i++)

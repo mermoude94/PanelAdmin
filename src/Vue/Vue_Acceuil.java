@@ -9,7 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Vue_Acceuil extends JFrame {
+public class Vue_Acceuil extends JFrame
+{
     private Client client;
     public static JPanel contentPanel;
 
@@ -40,17 +41,16 @@ public class Vue_Acceuil extends JFrame {
         contentPanel = new JPanel();
         panel.add(contentPanel, BorderLayout.CENTER);
 
-        bouton1.addActionListener(new ActionListener() {
+        bouton1.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 contentPanel.removeAll();
-
                 JLabel label = new JLabel("<html>Vous ete actuellement sur le Panel Admin du site.\n" +
                         "Les Donnée presente dans ce logiciel son privée et reserver a l'equipe interne du site.</html>");
                 label.setHorizontalAlignment(SwingConstants.CENTER);
                 label.setVerticalAlignment(SwingConstants.CENTER);
-
                 contentPanel.add(label);
                 contentPanel.revalidate();
                 contentPanel.repaint();
@@ -97,9 +97,31 @@ public class Vue_Acceuil extends JFrame {
             public void actionPerformed(ActionEvent e)
             {
                 contentPanel.removeAll();
-                Reference.afficherLesListe(contentPanel);
+                JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+                JButton button1 = new JButton("Marques");
+                JButton button2 = new JButton("Modeles");
+                buttonPanel.add(button1);
+                buttonPanel.add(button2);
+                contentPanel.add(buttonPanel);
                 contentPanel.revalidate();
                 contentPanel.repaint();
+                button1.addActionListener(new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent e)
+                    {
+                    }
+                });
+                button2.addActionListener(new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent e)
+                    {
+                        Reference.afficherListeModele(contentPanel);
+                        contentPanel.revalidate();
+                        contentPanel.repaint();
+                    }
+                });
             }
         });
 

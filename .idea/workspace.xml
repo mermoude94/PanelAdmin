@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b76dc0d-da65-41c4-9293-dd3b0cbac1c0" name="Changes" comment="Ajout selection des annonce et signalement,&#10;selection une annonce dans une nouvelle page,&#10;ajout Signalement">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2024_08_52_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2024_08_52__Changes_.xml" beforeDir="false" />
+    <list default="true" id="4b76dc0d-da65-41c4-9293-dd3b0cbac1c0" name="Changes" comment="pre correction ref et modele">
+      <change afterPath="$PROJECT_DIR$/src/Model/Montre.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vue/VueUnModele.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Reference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Reference.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Suppression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Suppression.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Traitement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Traitement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vue/VueUnSignalement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/VueUnSignalement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vue/VueUnUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/VueUnUtilisateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vue/VueUneAnnonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/VueUneAnnonce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vue/Vue_Acceuil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/Vue_Acceuil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +74,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -127,7 +123,11 @@
       <workItem from="1716023169799" duration="3750000" />
       <workItem from="1717074602783" duration="214000" />
       <workItem from="1717074828391" duration="1079000" />
-      <workItem from="1717076398795" duration="1182000" />
+      <workItem from="1717076398795" duration="12578000" />
+      <workItem from="1718202430120" duration="873000" />
+      <workItem from="1718284623957" duration="7978000" />
+      <workItem from="1718380511226" duration="333000" />
+      <workItem from="1718381256861" duration="524000" />
     </task>
     <task id="LOCAL-00001" summary="Connection interface">
       <option name="closed" value="true" />
@@ -161,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714661999304</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="pre correction ref et modele">
+      <option name="closed" value="true" />
+      <created>1717680756843</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717680756843</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +190,24 @@
     <MESSAGE value="Connection interface" />
     <MESSAGE value="cheppa" />
     <MESSAGE value="Ajout selection des annonce et signalement,&#10;selection une annonce dans une nouvelle page,&#10;ajout Signalement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout selection des annonce et signalement,&#10;selection une annonce dans une nouvelle page,&#10;ajout Signalement" />
+    <MESSAGE value="pre correction ref et modele" />
+    <option name="LAST_COMMIT_MESSAGE" value="pre correction ref et modele" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Model/Analyse.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Model/Traitement.java</url>
+          <line>229</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
