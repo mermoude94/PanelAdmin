@@ -11,12 +11,12 @@ import java.net.URI;
 
 import static Vue.Vue_Acceuil.contentPanel;
 
-public class VueUnModele
+public class VueUneMarque
 {
-    public static void afficherModele(int Id_reference)
+    public static void afficherMarque(int Id_marque)
     {
-        Montre montre = Reference.getReferenceById(Id_reference);
-        JFrame frame = new JFrame("Reference Modele: " + Id_reference);
+        Marque marque = Reference.getMarqueById(Id_marque);
+        JFrame frame = new JFrame("Marque : "+ Id_marque);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
@@ -27,19 +27,18 @@ public class VueUnModele
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 5, 5, 5);
 
-        if (montre != null)
+        if (marque != null)
         {
-            addLabel(panel, gbc, "ID de la reference: " + montre.getId_reference());
-            addLabel(panel, gbc, "Nom modele : " + montre.getNom_modele());
-            addLabel(panel, gbc, "Marque : " + montre.getNom_marque());
-
+            addLabel(panel, gbc, "Id Marque : " + marque.getId_marque());
+            addLabel(panel, gbc, "Marque : " + marque.getNom_marque());
         }
         else
         {
-            addLabel(panel, gbc, "Aucune Montre trouvée : " + Id_reference);
+            addLabel(panel, gbc, "Aucune Marque trouvée : " + Id_marque);
         }
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton button1 = new JButton("Supprimer");
+        JButton button2 = new JButton("Ajouter Marque");
         buttonPanel.add(button1);
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
@@ -53,13 +52,20 @@ public class VueUnModele
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                int Id_reference = montre.getId_reference();
-                Suppression.SupprimerUnModele(Id_reference);
+                int Id_marque = marque.getId_marque();
+                Suppression.SupprimerUneMarque(Id_marque);
                 frame.dispose();
-                Reference.afficherListeModele(contentPanel);
+                Reference.afficherListeMarque(contentPanel);
                 contentPanel.revalidate();
                 contentPanel.repaint();
             }
+        });
+        button2.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+                {
+                    VueAjouterMarque.AjouterUneMarque();
+                }
         });
     }
     private static void addLabel(JPanel panel, GridBagConstraints gbc, String text)

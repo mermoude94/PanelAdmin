@@ -60,4 +60,32 @@ public class Suppression
             JOptionPane.showMessageDialog(null, "Probleme lors de la suppression de l'utilisateur", "Erreur", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+    public static void SupprimerUnModele(int Id_reference)
+    {
+        try
+        {
+            MonPdo monPdo = new MonPdo();
+            String query = "DELETE FROM ref WHERE ref.Id_ref = ?";
+            monPdo.executerUneRequete(query, Id_reference);
+            JOptionPane.showMessageDialog(null, "Modele supprimé avec succès.", "Succès", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch (SQLException e)
+        {
+            JOptionPane.showMessageDialog(null, "Probleme lors de la suppression du modele", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    public static void SupprimerUneMarque(int Id_marque)
+    {
+        try
+        {
+            MonPdo monPdo = new MonPdo();
+            String query = "DELETE FROM marque WHERE marque.Id_marque = ?";
+            monPdo.executerUneRequete(query, Id_marque);
+            JOptionPane.showMessageDialog(null, "Marque supprimé avec succès.", "Succès", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch (SQLException e)
+        {
+            JOptionPane.showMessageDialog(null, "Probleme lors de la suppression de la marque", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
 }

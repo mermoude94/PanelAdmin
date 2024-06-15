@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b76dc0d-da65-41c4-9293-dd3b0cbac1c0" name="Changes" comment="pre correction ref et modele">
-      <change afterPath="$PROJECT_DIR$/src/Model/Montre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vue/VueUnModele.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vue/VueAjouterMarque.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vue/VueUneMarque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MonPdo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MonPdo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Reference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Reference.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Traitement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Traitement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vue/VueUneAnnonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/VueUneAnnonce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Suppression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Suppression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vue/VueUnModele.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/VueUnModele.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vue/Vue_Acceuil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/Vue_Acceuil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +128,8 @@
       <workItem from="1718202430120" duration="873000" />
       <workItem from="1718284623957" duration="7978000" />
       <workItem from="1718380511226" duration="333000" />
-      <workItem from="1718381256861" duration="524000" />
+      <workItem from="1718381256861" duration="8441000" />
+      <workItem from="1718445573599" duration="5925000" />
     </task>
     <task id="LOCAL-00001" summary="Connection interface">
       <option name="closed" value="true" />
@@ -169,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717680756843</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="pre correction ref et modele">
+      <option name="closed" value="true" />
+      <created>1718381886683</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718381886683</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +215,11 @@
           <url>file://$PROJECT_DIR$/src/Model/Traitement.java</url>
           <line>229</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Vue/VueUneAnnonce.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

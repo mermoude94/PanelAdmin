@@ -89,6 +89,49 @@ public class MonPdo
             throw exp;
         }
     }
+    public void executerRequeteAjout(String sql) throws SQLException
+    {
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try
+        {
+            statement = this.unPDO.prepareStatement(sql);
+
+            if (sql.trim().toUpperCase().startsWith("SELECT"))
+            {
+                resultSet = statement.executeQuery();
+                while (resultSet.next())
+                {
+                    // Traitez le ResultSet selon vos besoins
+                    System.out.println("Résultat : " + resultSet.getString(1));
+                }
+            }
+            else
+            {
+                int rowsAffected = statement.executeUpdate();
+                System.out.println("Lignes affectées : " + rowsAffected);
+            }
+        }
+        catch (SQLException exp)
+        {
+            System.err.println("Erreur lors de l'exécution de la requête: " + exp.getMessage());
+            throw exp;
+        }
+        finally
+        {
+            try
+            {
+                if (resultSet != null) resultSet.close();
+                if (statement != null) statement.close();
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
 
 }

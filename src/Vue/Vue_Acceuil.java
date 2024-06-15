@@ -110,6 +110,9 @@ public class Vue_Acceuil extends JFrame
                     @Override
                     public void actionPerformed(ActionEvent e)
                     {
+                        Reference.afficherListeMarque(contentPanel);
+                        contentPanel.revalidate();
+                        contentPanel.repaint();
                     }
                 });
                 button2.addActionListener(new ActionListener()
@@ -117,6 +120,7 @@ public class Vue_Acceuil extends JFrame
                     @Override
                     public void actionPerformed(ActionEvent e)
                     {
+
                         Reference.afficherListeModele(contentPanel);
                         contentPanel.revalidate();
                         contentPanel.repaint();
@@ -124,7 +128,6 @@ public class Vue_Acceuil extends JFrame
                 });
             }
         });
-
         add(panel);
         setVisible(true);
     }
