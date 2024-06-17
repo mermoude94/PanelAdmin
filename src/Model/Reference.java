@@ -1,6 +1,7 @@
 package Model;
 
 import Vue.VueAjouterMarque;
+import Vue.VueAjouterModele;
 import Vue.VueUnModele;
 import Vue.VueUneMarque;
 
@@ -46,7 +47,8 @@ public class Reference
             {
                 int Id_ref = resultSet.getInt("Id_ref");
                 String Nom_modele = resultSet.getString("Nom");
-                modeles.add(new Modele(Id_ref, Nom_modele));
+                int Id_marque = resultSet.getInt("Id_marque");
+                modeles.add(new Modele(Id_ref, Nom_modele, Id_marque));
             }
         }
         catch (SQLException e)
@@ -55,11 +57,12 @@ public class Reference
         }
         return modeles;
     }
-    public static ArrayList<Modele> DonneeModeleUneMarque(String Id_marque)
+    public static ArrayList<Modele> DonneeModeleUneMarque(int Id_marque)
     {
         MonPdo monPdo = new MonPdo();
         ArrayList<Modele> modeles = new ArrayList<>();
-        try {
+        try
+        {
             ResultSet resultSet = monPdo.executerRequete(
                     "SELECT *\n" +
                             "FROM ref\n" +
@@ -68,7 +71,7 @@ public class Reference
             {
                 int Id_ref = resultSet.getInt("Id_ref");
                 String Nom_modele = resultSet.getString("Nom");
-                modeles.add(new Modele(Id_ref, Nom_modele));
+                modeles.add(new Modele(Id_ref, Nom_modele, Id_marque));
             }
         }
         catch (SQLException e)
@@ -211,7 +214,11 @@ public class Reference
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+                int Id_marque = marquesSelectionnees.getFirst();
+                contentPanel.removeAll();
+                Reference.afficherListeModeleParMarque(contentPanel, Id_marque);
+                contentPanel.revalidate();
+                contentPanel.repaint();
             }
         });
 
@@ -323,6 +330,119 @@ public class Reference
         panel.revalidate();
         panel.repaint();
     }
+    public static void afficherListeModeleParMarque(JPanel panel, int Id_marque)
+    {
+
+        ArrayList<Modele> modeles = DonneeModeleUneMarque(Id_marque);
+
+        Object[][] data = new Object[modeles.size()][13];
+        for (int i = 0; i < modeles.size(); i++) {
+            Modele modele = modeles.get(i);
+            data[i] = new Object[]
+                    {
+                            null,
+                            modele.getId_ref(),
+                            modele.getNom_ref(),
+                    };
+        }
+        String[] columnNames =
+                {
+                        "Sélection",
+                        "Id Reference",
+                        "Nom",
+                };
+        DefaultTableModel model = new DefaultTableModel(data, columnNames)
+        {
+            @Override
+            public boolean isCellEditable(int row, int column)
+            {
+                return column == 0;
+            }
+            @Override
+            public Class<?> getColumnClass(int columnIndex)
+            {
+                if (columnIndex == 0) {
+                    return Boolean.class;
+                }
+                return super.getColumnClass(columnIndex);
+            }
+            @Override
+            public void setValueAt(Object value, int row, int column)
+            {
+                if (column == 0 && value instanceof Boolean)
+                {
+                    if ((Boolean) value) {
+                        for (int i = 0; i < getRowCount(); i++)
+                        {
+                            if (i != row)
+                            {
+                                setValueAt(false, i, column);
+                            }
+                        }
+                    }
+                }
+                super.setValueAt(value, row, column);
+            }
+        };
+        if (modeles.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Aucun modele Trouvé.", "Échec", JOptionPane.ERROR_MESSAGE);
+        }
+        JTable table = new JTable(model);
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        JScrollPane scrollPane = new JScrollPane(table);
+
+        table.getSelectionModel().addListSelectionListener(e ->
+        {
+            int ligneSelectionnee = table.getSelectedRow();
+            if (ligneSelectionnee != -1)
+            {
+                modelesSelectionnees.clear();
+                Object value = table.getValueAt(ligneSelectionnee, 1);
+                if (value != null)
+                {
+                    modelesSelectionnees.add((Integer) value);
+                }
+            }
+        });
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        JButton button1 = new JButton("Ouvrir");
+        JButton button2 = new JButton("Ajouter un model");
+        buttonPanel.add(button1);
+        buttonPanel.add(button2);
+
+        button1.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (!modelesSelectionnees.isEmpty())
+                {
+                    VueUnModele.afficherModele(modelesSelectionnees.getFirst());
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Aucun modele selectionnée.", "Échec", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+        button2.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                VueAjouterModele.AjouterUnModele(Id_marque);
+            }
+        });
+
+        panel.removeAll();
+        panel.setLayout(new BorderLayout());
+        panel.add(scrollPane, BorderLayout.CENTER);
+        panel.add(buttonPanel, BorderLayout.SOUTH);
+        panel.revalidate();
+        panel.repaint();
+    }
     public static Marque getMarqueById(int Id_marque)
     {
         MonPdo monPdo = new MonPdo();
@@ -351,22 +471,14 @@ public class Reference
         Montre montre = null;
         try
         {
-            ResultSet resultSet = monPdo.executerRequete("SELECT \n" +
-                    "    ref.Id_ref, \n" +
-                    "    ref.Nom AS Nom_ref, \n" +
-                    "    marque.Nom\n" +
-                    "FROM \n" +
-                    "    ref\n" +
-                    "JOIN \n" +
-                    "    marque \n" +
-                    "ON \n" +
-                    STR."ref.Id_ref = \{Id_ref}");
+            ResultSet resultSet = monPdo.executerRequete(
+                    STR."SELECT ref.Id_ref, ref.Id_marque, ref.Nom AS Nom_ref, marque.Nom AS Nom_marque FROM ref JOIN marque ON ref.Id_marque = marque.Id_marque WHERE ref.Id_ref = \{Id_ref}" );
 
             if (resultSet.next())
             {
                 int Id_reference = resultSet.getInt("Id_ref");
                 String Nom_modele = resultSet.getString("Nom_ref");
-                String Nom_marque = resultSet.getString("Nom");
+                String Nom_marque = resultSet.getString("Nom_marque");
 
                 montre = new Montre(Id_reference, Nom_modele, Nom_marque);
             }
@@ -389,4 +501,17 @@ public class Reference
             e.printStackTrace();
         }
     }
+    public static void AjouterModel(String Nom_modele,int Id_marque)
+    {
+        MonPdo monPdo = new MonPdo();
+        try
+        {
+            monPdo.executerRequeteAjout(STR."INSERT INTO ref (Id_marque, Nom) VALUES (\{Id_marque}, '\{Nom_modele}')");
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
 }
