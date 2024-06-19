@@ -4,10 +4,13 @@ import Model.Analyse;
 import Model.Client;
 import Model.Reference;
 import Model.Traitement;
+import com.sun.tools.javac.Main;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Vue_Acceuil extends JFrame
 {
@@ -128,6 +131,15 @@ public class Vue_Acceuil extends JFrame
                 });
             }
         });
+        bouton6.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                dispose();
+            }
+        });
+
         add(panel);
         setVisible(true);
     }
